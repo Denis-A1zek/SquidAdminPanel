@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquidAdminPanel.Domain", "SquidAdminPanel.Backend\SquidAdminPanel.Domain\SquidAdminPanel.Domain.csproj", "{F4497B4D-70EB-4B13-8A6C-D6058F06AE37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{57A1FA01-654E-4BEF-949D-212FFCF1C242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquidAdminPanel.Application", "SquidAdminPanel.Backend\SquidAdminPanel.Application\SquidAdminPanel.Application.csproj", "{A42788A2-A8F7-4C1C-A379-FD12DA3475E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,17 @@ Global
 		{F4497B4D-70EB-4B13-8A6C-D6058F06AE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4497B4D-70EB-4B13-8A6C-D6058F06AE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4497B4D-70EB-4B13-8A6C-D6058F06AE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42788A2-A8F7-4C1C-A379-FD12DA3475E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42788A2-A8F7-4C1C-A379-FD12DA3475E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42788A2-A8F7-4C1C-A379-FD12DA3475E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42788A2-A8F7-4C1C-A379-FD12DA3475E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4497B4D-70EB-4B13-8A6C-D6058F06AE37} = {57A1FA01-654E-4BEF-949D-212FFCF1C242}
+		{A42788A2-A8F7-4C1C-A379-FD12DA3475E3} = {57A1FA01-654E-4BEF-949D-212FFCF1C242}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16862B36-6D4C-456A-A442-4CFC241F2E11}
