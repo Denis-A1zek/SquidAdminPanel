@@ -1,11 +1,11 @@
 ﻿using SquidAdminPanel.Api.Api;
 using SquidAdminPanel.Api.Api.Interfaces;
 
-namespace SquidAdminPanel.Api.Extensions;
+namespace SquidAdminPanel.Api.Common.Extensions;
 
 public static class ServiceRegisterExtension
 {
-    public static void AddServices(this IServiceCollection services )
+    public static void AddServices(this IServiceCollection services)
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();

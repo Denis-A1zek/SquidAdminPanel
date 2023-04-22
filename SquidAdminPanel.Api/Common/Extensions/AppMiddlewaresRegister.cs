@@ -1,4 +1,4 @@
-﻿namespace SquidAdminPanel.Api.Extensions;
+﻿namespace SquidAdminPanel.Api.Common.Extensions;
 
 public static class AppMiddlewaresRegister
 {
