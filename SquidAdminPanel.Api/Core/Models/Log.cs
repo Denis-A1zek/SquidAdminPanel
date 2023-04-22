@@ -1,6 +1,7 @@
 ﻿namespace SquidAdminPanel.Api.Core.Models
 {
-    public class Log
+    public sealed record Log
     {
+
     }
 }
