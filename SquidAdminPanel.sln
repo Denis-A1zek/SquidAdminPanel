@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquidAdminPanel.Api", "SquidAdminPanel.Api\SquidAdminPanel.Api.csproj", "{17CD082D-B5EF-49A8-BC86-0A3A8E391D57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquidAdminPanel.Api", "SquidAdminPanel.Api\SquidAdminPanel.Api.csproj", "{17CD082D-B5EF-49A8-BC86-0A3A8E391D57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F0E46D60-41B1-4983-BC83-23E782FB553B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FADDC98D-8A55-4F08-89F0-E6C21084E71B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquidAdminPanel.Tests", "SquidAdminPanel.Tests\SquidAdminPanel.Tests.csproj", "{60C78B93-1F97-47F5-88A1-BAACF4A328E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{17CD082D-B5EF-49A8-BC86-0A3A8E391D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17CD082D-B5EF-49A8-BC86-0A3A8E391D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17CD082D-B5EF-49A8-BC86-0A3A8E391D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C78B93-1F97-47F5-88A1-BAACF4A328E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C78B93-1F97-47F5-88A1-BAACF4A328E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C78B93-1F97-47F5-88A1-BAACF4A328E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C78B93-1F97-47F5-88A1-BAACF4A328E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{17CD082D-B5EF-49A8-BC86-0A3A8E391D57} = {F0E46D60-41B1-4983-BC83-23E782FB553B}
+		{60C78B93-1F97-47F5-88A1-BAACF4A328E6} = {FADDC98D-8A55-4F08-89F0-E6C21084E71B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16862B36-6D4C-456A-A442-4CFC241F2E11}
