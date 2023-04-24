@@ -1,6 +1,6 @@
-﻿using SquidAdminPanel.Api.Api.Interfaces;
+﻿using SquidAdminPanel.Api.Application;
 
-namespace SquidAdminPanel.Api.Api;
+namespace SquidAdminPanel.Api.Application;
 
 public class TestApi : IApi
 {

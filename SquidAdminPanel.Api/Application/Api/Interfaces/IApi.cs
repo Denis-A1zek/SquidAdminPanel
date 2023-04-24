@@ -1,4 +1,4 @@
-﻿namespace SquidAdminPanel.Api.Api.Interfaces;
+﻿namespace SquidAdminPanel.Api.Application;
 
 public interface IApi
 {
