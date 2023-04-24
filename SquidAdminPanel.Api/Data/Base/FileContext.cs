@@ -1,9 +1,9 @@
-﻿namespace SquidAdminPanel.Api.Data;
+﻿namespace SquidAdminPanel.Api.Data.Base;
 
-public class FileContext
+public abstract class FileContext
 {
-    public string _path = string.Empty;
-    
+    private string _path = string.Empty;
+
     /// <summary>
     /// Creates a file context in wich you can make queries
     /// </summary>
@@ -14,9 +14,8 @@ public class FileContext
         if (File.Exists(path) == false)
             throw new FileNotFoundException($"Файл по пути {path} не был найден");
         _path = path;
-    }  
-    
-    public async Task<TResult> QueryReadLineAsync<TResult>(Func<TResult> initializer,Action<TResult> action)
+    }
+    public async Task<TResult> QueryReadLineAsync<TResult>(Func<TResult> initializer, Action<TResult> action)
     {
         TResult result = initializer();
 
@@ -34,4 +33,5 @@ public class FileContext
         string[] fileText = await File.ReadAllLinesAsync(_path);
         return action(fileText);
     }
+
 }

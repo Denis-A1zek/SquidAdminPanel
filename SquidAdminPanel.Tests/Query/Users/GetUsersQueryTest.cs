@@ -16,7 +16,7 @@ public class GetUsersQueryTest
     [Test]
     public async Task GetUsersQueryHandler_ShouldReturn_ListWithUsersAsync()
     {
-        var context = FileContextFactory.Create("users.txt");
+        var context = FileContextFactory.CreateUserContext("users.txt");
 
         var handler = new GetUsersQueryHandler(context);
 

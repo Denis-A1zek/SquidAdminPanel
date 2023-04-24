@@ -1,4 +1,5 @@
 ﻿using SquidAdminPanel.Api.Data;
+using SquidAdminPanel.Api.Data.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,16 @@ namespace SquidAdminPanel.Tests.Common;
 internal class FileContextFactory
 {
     public static string UserNameForDelete = "Ivan";
-    public static FileContext Create(string path)
+    public static UserContext CreateUserContext(string path)
     {
-        var context = new FileContext(path);
+        var context = new UserContext(path);
         using (StreamWriter writer = new StreamWriter(path, false))
         {
             writer.WriteLine("Ivan:123\nGena:567\nSome:676\nSanya:6546");
         }
         return context;
     }
+
 
     public static void Destroy(string path)
     {
