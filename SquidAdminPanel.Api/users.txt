@@ -1,0 +1,7 @@
+clerk:123
+admin:123
+manager:123
+mamaon:123
+herol:123
+laplaz:123
+hfggf:123

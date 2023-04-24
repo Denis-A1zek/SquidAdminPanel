@@ -1,4 +1,7 @@
-﻿using SquidAdminPanel.Api.Application;
+﻿using FluentValidation;
+using MediatR;
+using SquidAdminPanel.Api.Application;
+using SquidAdminPanel.Api.Core.Behaviors;
 using SquidAdminPanel.Api.Core.Processes.Base;
 using SquidAdminPanel.Api.Data;
 using System.Diagnostics;
@@ -25,6 +28,10 @@ public static class ServiceRegisterExtension
                 });
 
         services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddValidatorsFromAssemblies(new[] {Assembly.GetExecutingAssembly()});  
+        services.AddTransient(typeof(IPipelineBehavior<,>),
+            typeof(ValidationBehavior<,>)); 
+
 
         services.AddScoped<UserContext>(factory =>
         {

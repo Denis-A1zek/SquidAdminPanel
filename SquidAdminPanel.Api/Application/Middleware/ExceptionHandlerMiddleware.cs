@@ -1,4 +1,5 @@
-﻿using SquidAdminPanel.Api.Application.Common.Models;
+﻿using FluentValidation;
+using SquidAdminPanel.Api.Application.Common.Models;
 using SquidAdminPanel.Api.Core.Exceptions;
 using System.Net;
 using System.Text.Json;
@@ -35,6 +36,12 @@ public class ExceptionHandlerMiddleware
                 errorInfo.Title = HttpStatusCode.NotFound.ToString();
                 errorInfo.Type = $"{context.Request.Host}{context.Request.Path}";
                 errorInfo.Message = exception.Message;
+                break;
+            case ValidationException validationException:
+                errorInfo.StatusCodes = HttpStatusCode.BadRequest;
+                errorInfo.Title = HttpStatusCode.BadRequest.ToString();
+                errorInfo.Type = $"{context.Request.Host}{context.Request.Path}";
+                errorInfo.Message = JsonSerializer.Serialize(validationException.Errors);
                 break;
             default:
                 errorInfo.Type = $"{context.Request.Host}{context.Request.Path}";
