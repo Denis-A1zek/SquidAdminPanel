@@ -1,7 +1,6 @@
-﻿using SquidAdminPanel.Api.Api;
-using SquidAdminPanel.Api.Api.Interfaces;
+﻿using SquidAdminPanel.Api.Application;
 
-namespace SquidAdminPanel.Api.Common.Extensions;
+namespace SquidAdminPanel.Api.Application;
 
 public static class ServiceRegisterExtension
 {

@@ -1,4 +1,4 @@
-﻿namespace SquidAdminPanel.Api.Common.Extensions;
+﻿namespace SquidAdminPanel.Api.Application;
 
 public static class AppMiddlewaresRegister
 {
@@ -9,5 +9,8 @@ public static class AppMiddlewaresRegister
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        var apis = app.Services.GetServices<IApi>().ToList();
+        apis.ForEach(api => api.Register(app));
     }
 }
