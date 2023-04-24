@@ -52,7 +52,7 @@ public class UserApi : IApi
     /// <param name="mediator"></param>
     /// <returns>Username</returns>
     private async Task<IResult> Post(UserRequest user, [FromServices] IMediator mediator) =>
-        Results.Ok(await (mediator.Send(new CreateUserCommand(user.Name, user.Password))));
+        Results.Ok(await mediator.Send(new CreateUserCommand(user.Name, user.Password)));
 
     /// <summary>
     /// Deletes a user from the proxy
