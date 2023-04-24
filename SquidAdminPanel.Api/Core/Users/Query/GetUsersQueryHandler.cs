@@ -1,18 +1,19 @@
 ﻿using MediatR;
 using SquidAdminPanel.Api.Core.Models;
 using SquidAdminPanel.Api.Data;
+using SquidAdminPanel.Api.Data.Base;
 
 namespace SquidAdminPanel.Api.Core.Users
 {
     public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, List<User>>
     {
-        private readonly FileContext _fileContext;
+        private readonly UserContext _userContext;
 
-        public GetUsersQueryHandler(FileContext context) => _fileContext = context;
+        public GetUsersQueryHandler(UserContext context) => _userContext = context;
 
         public async Task<List<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            return await _fileContext.QueryReadAllLineAsync<List<User>>(usersFile =>
+            return await _userContext.QueryReadAllLineAsync<List<User>>(usersFile =>
             {
                 var usersList = new List<User>();
                 foreach (var (user, i) in usersFile.Select((user, i) => (user, i)))
