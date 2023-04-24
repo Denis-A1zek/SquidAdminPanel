@@ -3,7 +3,7 @@ using SquidAdminPanel.Api.Core.Models;
 using SquidAdminPanel.Api.Data;
 using SquidAdminPanel.Api.Data.Base;
 
-namespace SquidAdminPanel.Api.Core.Users
+namespace SquidAdminPanel.Api.Core.Users.Query.GetUsers
 {
     public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, List<User>>
     {
@@ -13,7 +13,7 @@ namespace SquidAdminPanel.Api.Core.Users
 
         public async Task<List<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            return await _userContext.QueryReadAllLineAsync<List<User>>(usersFile =>
+            return await _userContext.QueryReadAllLineAsync(usersFile =>
             {
                 var usersList = new List<User>();
                 foreach (var (user, i) in usersFile.Select((user, i) => (user, i)))
@@ -24,8 +24,6 @@ namespace SquidAdminPanel.Api.Core.Users
 
                 return usersList;
             });
-
-            
         }
     }
 }
