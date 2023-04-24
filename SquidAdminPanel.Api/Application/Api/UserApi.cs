@@ -17,7 +17,7 @@ public class UserApi : IApi
             .WithName("GetAllUsers")
             .WithTags("User");
 
-        app.MapPatch("api/user", Post)
+        app.MapPut("api/user", Post)
             .Produces<string>(StatusCodes.Status200OK)
             .WithName("CreateUser")
             .WithTags("User");
