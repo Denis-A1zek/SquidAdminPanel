@@ -11,7 +11,7 @@ namespace SquidAdminPanel.Tests.Common;
 
 internal class FileContextFactory
 {
-    public static string UserNameForDelete = "Ivan";
+    public static string UserNameForSearch = "Ivan";
     public static UserContext CreateUserContext(string path)
     {
         var context = new UserContext(path);
