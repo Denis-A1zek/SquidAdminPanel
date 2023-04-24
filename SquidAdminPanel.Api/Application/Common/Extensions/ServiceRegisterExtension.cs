@@ -15,11 +15,14 @@ public static class ServiceRegisterExtension
         services.AddSwaggerGen();
 
         services.AddTransient<IApi, TestApi>();
-        List<Type> list = Assembly.GetAssembly(typeof(ProcessManager)).GetTypes().Where(type => type.IsSubclassOf(typeof(ProcessManager))).ToList();
-        list.ForEach(type =>
-        {
-            services.AddScoped(type);
-        });
+        Assembly.GetAssembly(typeof(ProcessManager))
+                .GetTypes().Where(type => type.IsSubclassOf(typeof(ProcessManager)))
+                .ToList().ForEach(type =>
+                {
+                    services.AddScoped(type);
+                }); ;
 
+        services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
     }
 }
+
