@@ -15,7 +15,6 @@ public static class ServiceRegisterExtension
         services.AddSwaggerGen();
 
         //TO-DO Get all classes from assembley with interface IApi and inject into services
-        services.AddTransient<IApi, TestApi>();
         services.AddTransient<IApi, UserApi>();
 
         Assembly.GetAssembly(typeof(ProcessManager))

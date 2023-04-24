@@ -1,9 +1,12 @@
-﻿namespace SquidAdminPanel.Api.Application;
+﻿using SquidAdminPanel.Api.Application.Middleware;
+
+namespace SquidAdminPanel.Api.Application;
 
 public static class AppMiddlewaresRegister
 {
     public static void RegisterMiddleware(this WebApplication app)
     {
+        app.UseMiddleware<ExceptionHandlerMiddleware>();
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
