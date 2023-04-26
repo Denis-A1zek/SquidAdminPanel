@@ -19,18 +19,18 @@ $(function(){
                               line[log].Description + line[log].FromAddress + "\n";
 
                         //const someValue = uuidv4();
-                        $('#tab').append('<p>'+ logmessage +'</p>');
-                        
+                        const jQItem = $('<p class="fs-6">' + logmessage + '</p>');
+                        $('#logsContainer').append(jQItem);
+                        jQItem.css('color', 'red');
                         //$('#'+someValue).css('color','red');
 
-                        //setTimeout(function() {
-                         //     $('#'+someValue).css('color', 'black');
-
-                          //  }, 500);
+                        setTimeout(function() {
+                              jQItem .css('color', 'black');
+                            }, 500);
                         
 
                   }
-                  $('#tab').scrollTop($('#tab')[0].scrollHeight);
+                  $('#logsContainer').scrollTop($('#logsContainer')[0].scrollHeight);
                   console.log("Получение данных с сервера");
             }
 
