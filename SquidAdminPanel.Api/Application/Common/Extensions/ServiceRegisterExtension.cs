@@ -37,6 +37,11 @@ public static class ServiceRegisterExtension
         {
             return new UserContext(configuration[nameof(UserContext)]);
         });
+
+        services.AddScoped<LogsContext>(factory =>
+        {
+            return new LogsContext(configuration[nameof(LogsContext)]);
+        });
     }
 }
 
