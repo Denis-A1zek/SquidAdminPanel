@@ -15,5 +15,7 @@ public static class AppMiddlewaresRegister
 
         var apis = app.Services.GetServices<IApi>().ToList();
         apis.ForEach(api => api.Register(app));
+
+        app.UseCors("MyCors");
     }
 }

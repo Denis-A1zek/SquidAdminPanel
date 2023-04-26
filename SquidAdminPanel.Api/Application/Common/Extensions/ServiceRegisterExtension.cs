@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using SquidAdminPanel.Api.Application;
+using SquidAdminPanel.Api.Application.Cache;
 using SquidAdminPanel.Api.Core.Behaviors;
 using SquidAdminPanel.Api.Core.Helpers;
 using SquidAdminPanel.Api.Core.Interfaces;
@@ -21,6 +22,7 @@ public static class ServiceRegisterExtension
 
         //TO-DO Get all classes from assembley with interface IApi and inject into services
         services.AddTransient<IApi, UserApi>();
+        services.AddTransient<IApi, LogApi>();
 
         Assembly.GetAssembly(typeof(ProcessManager))
                 .GetTypes().Where(type => type.IsSubclassOf(typeof(ProcessManager)))
@@ -29,11 +31,22 @@ public static class ServiceRegisterExtension
                     services.AddScoped(type);
                 });
 
+        services.AddSingleton<IGlobalCacheMemory,GlobalCacheMemory>();
         services.AddScoped<ILogReader, LogReader>();
         services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         services.AddValidatorsFromAssemblies(new[] {Assembly.GetExecutingAssembly()});  
         services.AddTransient(typeof(IPipelineBehavior<,>),
-            typeof(ValidationBehavior<,>)); 
+            typeof(ValidationBehavior<,>));
+
+        services.AddCors(options => options.AddPolicy(name: "MyCors",
+        policy =>
+        {
+            policy.WithOrigins("https://192.168.1.102:80").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+            policy.WithOrigins("http://localhost:5500").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+            policy.WithOrigins("http://127.0.0.1:5500").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+            policy.WithOrigins("https://192.168.1.102/").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+            policy.WithOrigins("https://192.168.1.102").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+        }));
 
 
         services.AddScoped<UserContext>(factory =>

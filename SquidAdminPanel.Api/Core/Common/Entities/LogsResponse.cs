@@ -1,4 +1,5 @@
 ﻿using SquidAdminPanel.Api.Core.Models;
+using System.Text.Json;
 
 namespace SquidAdminPanel.Api.Core;
 public sealed class LogsResponse

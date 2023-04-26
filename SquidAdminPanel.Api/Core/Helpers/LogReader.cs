@@ -33,8 +33,12 @@ public sealed class LogReader : ILogReader
                 var splitMethodeAndCode = splitLine[3].Split('/');
 
                 var createdLog = CreateLog(splitLine, currentLogsDate);
-                if(createdLog is not null) log.Logs.Add(createdLog);
+                if (createdLog is not null)
+                {
+                    log.Logs.Add(createdLog);
+                }
             }
+            log.RecentLogs = currentTime;
         });       
 
         return log;
