@@ -53,7 +53,7 @@ public sealed class LogReader : ILogReader
         {
             var logLine = new Log()
             {
-                Time = $"{logDate.ToShortDateString()} {logDate.ToShortTimeString()}",
+                Time = $"{logDate.ToShortDateString()} {logDate.ToLongTimeString()}",
                 Address = splitLines[2],
                 StatusCode = splitLines[3],
                 Description = message,

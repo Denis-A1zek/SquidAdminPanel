@@ -48,6 +48,6 @@ public class GetLogsQueryHandlerTest
         result.Logs.Count.ShouldBeLessThan(FileContextFactory.CountOfLogs);
         result.Logs.Count.ShouldBeGreaterThan(0);
         var logDate = Converter.SecondsToDateConverter(FileContextFactory.LogTime);
-        result.Logs.First().Time.ShouldBe($"{logDate.ToShortDateString()} {logDate.ToShortTimeString()}");
+        result.Logs.First().Time.ShouldBe($"{logDate.ToShortDateString()} {logDate.ToLongTimeString()}");
     }
 }
