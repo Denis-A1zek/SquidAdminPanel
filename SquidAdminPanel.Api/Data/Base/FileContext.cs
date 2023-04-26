@@ -15,18 +15,12 @@ public abstract class FileContext
             throw new FileNotFoundException($"Файл по пути {path} не был найден");
         _path = path;
     }
-    public async Task<TResult> QueryReadLineAsync<TResult>(Func<TResult> initializer, Action<TResult> action)
+    public async Task QueryReadLineAsync(Action<string> action)
     {
-        TResult result = initializer();
-
-        string? line;
-        using StreamReader streamReader = new(_path);
-        while ((line = await streamReader.ReadLineAsync()) is not null)
+        await foreach (var line in File.ReadLinesAsync(_path))
         {
-            action(result);
+            action(line);
         }
-
-        return result;
     }
     public async Task<TResult> QueryReadAllLineAsync<TResult>(Func<string[], TResult> action)
     {
