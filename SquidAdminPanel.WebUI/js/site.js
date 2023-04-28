@@ -4,7 +4,46 @@
 // Write your JavaScript code.
 
 
+async function getUsers()
+      {
+            var usersPromice = await fetch('https://localhost:7075/api/users')
+                              .then(response => response.json())
+                              .then(data =>{
+                                    const listUsers = data.users;
+                                    for(user in data)
+                                    {
+                                     
+                                          
+                                          var usersSection = document.querySelector("tbody.usersSection");
+                                          var tableLine = document.createElement("tr");
+                                          var usernameColumn = document.createElement("th");
+                                          usernameColumn.textContent = data[user].name;
+                                          
+                                          var actionColumn = document.createElement("th");
+                                          var actionInput = document.createElement("input");
+
+                                          const use = data[user].name;
+                                          actionInput.addEventListener('click', () =>
+                                                deleteUser(use));
+
+                                          actionColumn.appendChild(actionInput);
+                                          actionInput.type = 'button';
+                                          actionInput.classList = 'btn btn-danger';
+                                          actionInput.value = 'Delete';
+
+                                          tableLine.appendChild(usernameColumn);
+                                          tableLine.appendChild(actionColumn);
+
+                                          usersSection.appendChild(tableLine);
+
+                                    }
+                              });                         
+      }
+
 $(function(){
+      
+      
+
       var id = uuidv4();
       var source = new EventSource("https://localhost:7075/streamlogs/" + id);
       source.onmessage = function(event){            

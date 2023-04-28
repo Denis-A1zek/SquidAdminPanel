@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/site.css"/>
 </head>
-<body>
+<body onload="getUsers()">
     <div class="col-lg-8 mx-auto p-4 py-md-3">
         <header class="d-flex align-items-center pb-6 mb-1 border-bottom">
             <h1 class="d-flex align-items-center text-body-emphasis text-decoration-none">Squid Admin Panel</h1>
@@ -16,6 +16,7 @@
     <div class="container"> 
         <main role="main" class="pb-3">
             <div class="row mb-3 text-center">                
+                <!-- Logs container -->
                 <div class="col-md-8 themed-grid-col">
                     <div class="container my-5">
                         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
@@ -24,10 +25,42 @@
                         </div>
                     </div>
                 </div>              
+                
+                <!-- User CRUD operation -->
                 <div class="col-md-4 themed-grid-col">
                     <div class="container-sm my-5">
                         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h1 class="display-6 lh-1 fw-bold text-body-emphasis text-start">Users</h1>
+                                    </div>
+                                    
+                                    <div class="col">
+                                        <input type="button" class="btn btn-primary" 
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            value="Add new user"/>
+                                           
+                                          
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+                            <div class="container my-5" style="height: 400px; overflow: auto;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody class="usersSection">
+                                        
+                                      </tbody>
+                                    
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,6 +68,37 @@
             </div>
         </main>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add new user</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="userForm">
+                <div class="modal-body">
+                
+                      <div class="input-group flex-nowrap mb-3">     
+                          <input type="text" name="name" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="input-group flex-nowrap">    
+                          <input type="text" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+                        </div>
+             
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+      
+      
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -46,5 +110,8 @@
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/site.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/form.js"></script>
+    <script src="/js/delete.js"></script>
 </body>
 </html>

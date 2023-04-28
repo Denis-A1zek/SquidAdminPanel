@@ -17,6 +17,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, strin
 
     public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
+        Console.Write(request.UserName);
         var userExists = await _mediator.Send(new UserExistsQuery(request.UserName));
         if(userExists)
             throw new UserExistsException($"Пользователь с именем {request.UserName} уже существует");
