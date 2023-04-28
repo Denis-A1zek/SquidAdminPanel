@@ -41,11 +41,11 @@ public static class ServiceRegisterExtension
         services.AddCors(options => options.AddPolicy(name: "MyCors",
         policy =>
         {
-            policy.WithOrigins("https://192.168.1.102:80").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-            policy.WithOrigins("http://localhost:5500").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-            policy.WithOrigins("http://127.0.0.1:5500").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-            policy.WithOrigins("https://192.168.1.102/").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-            policy.WithOrigins("https://192.168.1.102").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+            policy.WithOrigins("https://192.168.1.102:80").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            policy.WithOrigins("http://localhost:5500").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            policy.WithOrigins("http://127.0.0.1:5500").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            policy.WithOrigins("https://192.168.1.102/").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            policy.WithOrigins("https://192.168.1.102").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
         }));
 
 

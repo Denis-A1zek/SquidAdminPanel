@@ -7,30 +7,30 @@
 $(function(){
       var id = uuidv4();
       var source = new EventSource("https://localhost:7075/streamlogs/" + id);
-
       source.onmessage = function(event){            
             const logs = JSON.parse(event.data);
             const line = logs.Logs;
             if(line.length != 0)
             {
                   for(log in line){
-                        //document.getElementById("spnMessage").innerHTML +=
                         const logmessage = line[log].Time + line[log].User + line[log].Address + line[log].StatusCode + 
                               line[log].Description + line[log].FromAddress + "\n";
+                      
+                        var divLog = document.querySelector("div.divLog");
+                        let item = document.createElement("p");
+                        item.classList.add("fs-6");
+                        item.textContent = logmessage
+                        divLog.appendChild(item);
 
-                        //const someValue = uuidv4();
-                        const jQItem = $('<p class="fs-6">' + logmessage + '</p>');
-                        $('#logsContainer').append(jQItem);
-                        jQItem.css('color', 'red');
-                        //$('#'+someValue).css('color','red');
+                        item.style.color = "red";
 
                         setTimeout(function() {
-                              jQItem .css('color', 'black');
+                              item.style.color = "black";
                             }, 500);
                         
 
                   }
-                  $('#logsContainer').scrollTop($('#logsContainer')[0].scrollHeight);
+                  divLog.scrollTop = divLog.scrollHeight;
                   console.log("Получение данных с сервера");
             }
 
